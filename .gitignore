@@ -1,0 +1,79 @@
+# C/C++用の.gitignore
+
+# ビルド結果
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+*.out
+*.app
+
+# プリコンパイルヘッダー
+*.gch
+*.pch
+
+# 依存関係ファイル
+*.d
+
+# デバッグシンボル
+*.dSYM/
+
+# IDE関連
+.vscode/
+.cursor/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ビルドディレクトリ
+build/
+bin/
+Debug/
+Release/
+x64/
+x86/
+Win32/
+
+# コア・ダンプファイル
+core
+
+# 自動生成ファイル
+Makefile.in
+aclocal.m4
+autom4te.cache/
+compile
+config.guess
+config.h.in
+config.sub
+configure
+depcomp
+install-sh
+ltmain.sh
+missing
+
+# CMake関連
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+
+# macOS特有のファイル
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+

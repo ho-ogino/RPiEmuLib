@@ -1,0 +1,49 @@
+# X1 emulator build Makefile for Raspberry Pi bare metal environment
+
+include thirdparty/circle-stdlib/Config.mk
+
+CIRCLEROOT = thirdparty/circle-stdlib
+CIRCLEHOME = thirdparty/circle-stdlib/libs/circle
+NEWLIBDIR = thirdparty/circle-stdlib/install/aarch64-none-circle
+
+SRCS = \
+src/rpi/main.cpp \
+src/rpi/kernel.cpp \
+src/rpi/vicesound.cpp \
+src/rpi/vicesoundvasedevice.cpp \
+src/rpi/FBConsole.cpp \
+src/rpi/PlatformScreen.cpp \
+src/rpi/PlatformMenu.cpp \
+src/rpi/PlatformSound.cpp \
+src/rpi/PlatformConfig.cpp \
+src/rpi/ConfigConverter.cpp \
+src/rpi/EmuController.cpp \
+src/rpi/emu6502.cpp \
+src/rpi/vm6502.cpp \
+src/fake6502/fake6502.c
+
+OBJS = $(SRCS:.cpp=.o)
+OBJS := $(OBJS:.c=.o)
+
+include $(CIRCLEHOME)/Rules.mk
+
+CFLAGS += -D_X1 -DNDEBUG -DOSD_RPI -O3 -D_RGB565 -DUSE_MENU -DRPI_MODEL=$(RPI)
+CFLAGS += -I "$(NEWLIBDIR)/include" -I $(STDDEF_INCPATH) -I thirdparty/circle-stdlib/include
+CXXFLAGS= += -O3 -fno-exceptions -march=armv8-a -mtune=cortex-a53 -marm -mfpu=neon-fp-armv8 -mfloat-abi=hard -ffreestanding -nostdlib
+
+LIBS := "$(NEWLIBDIR)/lib/libm.a" "$(NEWLIBDIR)/lib/libc.a" "$(NEWLIBDIR)/lib/libcirclenewlib.a" \
+	$(CIRCLEHOME)/addon/SDCard/libsdcard.a \
+	$(CIRCLEHOME)/lib/usb/libusb.a \
+	$(CIRCLEHOME)/lib/input/libinput.a \
+	$(CIRCLEHOME)/addon/fatfs/libfatfs.a \
+	$(CIRCLEHOME)/lib/fs/libfs.a \
+	$(CIRCLEHOME)/lib/net/libnet.a \
+	$(CIRCLEHOME)/addon/linux/liblinuxemu.a \
+	$(CIRCLEHOME)/lib/sched/libsched.a \
+	$(CIRCLEHOME)/lib/sound/libsound.a \
+	$(CIRCLEHOME)/lib/libcircle.a \
+	$(CIRCLEHOME)/addon/vc4/vchiq/libvchiq.a \
+	$(CIRCLEHOME)/addon/vc4/sound/libvchiqsound.a
+
+-include $(DEPS)
+
