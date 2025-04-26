@@ -15,7 +15,7 @@ RPiEmuLibは、Raspberry Pi上でエミュレーターを簡単に開発する�
 
 推奨ツールチェーン：
 - [Arm GNU Toolchain Downloads]( https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads )から入手できる gcc 13.2.Rel1
-  - 13.2.Rel1 で動作確認をしています(14系ではビルド出来ない断を確認しています)
+  - 13.2.Rel1 で動作確認をしています(14系ではビルド出来ない事を確認しています)
   - 各プラットフォームの AArch64 bare-metal target（aarch64-none-elf）※現在Macでのビルドのみ確認しています
 
 - Macでビルドする場合は gnu-getopt が必要
