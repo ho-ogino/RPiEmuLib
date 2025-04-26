@@ -60,11 +60,15 @@ src/rpi/osd_console.cpp \
 src/rpi/osd_input.cpp \
 src/rpi/osd_screen.cpp \
 src/rpi/osd_sound.cpp \
-src/rpi/rpimain.cpp \
 src/rpi/vicesound.cpp \
 src/rpi/vicesoundbasedevice.cpp \
 src/rpi/FBConsole.cpp \
-src/rpi/osd_menu.cpp
+src/rpi/PlatformScreen.cpp \
+src/rpi/PlatformMenu.cpp \
+src/rpi/PlatformSound.cpp \
+src/rpi/PlatformConfig.cpp \
+src/rpi/ConfigConverter.cpp \
+src/rpi/EmuController.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -90,8 +94,3 @@ LIBS := "$(NEWLIBDIR)/lib/libm.a" "$(NEWLIBDIR)/lib/libc.a" "$(NEWLIBDIR)/lib/li
 
 -include $(DEPS)
 
-.PHONY: all clean
-clean:
-	@echo "  CLEAN " `pwd`
-	@rm -f $(OBJS) $(DEPS) $(TARGET).elf $(TARGET).lst $(TARGET).map $(TARGET).img
-	@find src \( -name "*.o" -o -name "*.d" \) | xargs rm -f
