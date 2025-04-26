@@ -33,7 +33,7 @@ source ~/.zshrc
 
 1. リポジトリをクローンします:
    ```
-   git clone https://github.com/h-o-soft/RPiEmuLib.git
+   git clone https://github.com/ho-ogino/RPiEmuLib
    cd RPiEmuLib
    ```
 
