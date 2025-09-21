@@ -60,7 +60,7 @@ source ~/.zshrc
 4. Raspberry Piのモデルを切り替えるには
 
    ```
-   make allclean
+   make cleanall
    ```
 
    上記にて初期状態に戻したあと、Makefileを編集し、手順2から実行してください。
