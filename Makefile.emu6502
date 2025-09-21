@@ -10,7 +10,7 @@ SRCS = \
 src/rpi/main.cpp \
 src/rpi/kernel.cpp \
 src/rpi/vicesound.cpp \
-src/rpi/vicesoundvasedevice.cpp \
+src/rpi/vicesoundbasedevice.cpp \
 src/rpi/FBConsole.cpp \
 src/rpi/PlatformScreen.cpp \
 src/rpi/PlatformMenu.cpp \
